@@ -46,7 +46,30 @@ public class OS {
         }
     }
 
-    private OS() throws Exception {
+    /**
+     * 初始化系统
+     */
+    public void init() throws Exception {
+        cpu.init();
+        memory.init();
+        clock.init();
+       // OpenOperator();
+    }
+
+    public void start() throws Exception {
+        //TODO
+        init();
+        new Thread(cpu).start();
+        new Thread(clock).start();
+
+    }
+
+
+    /**
+     * 关闭系统资源
+     */
+    public void close() {
+        launched = false;
     }
 
     public static synchronized  OS getInstance( ) throws Exception {

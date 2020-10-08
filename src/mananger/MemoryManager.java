@@ -7,8 +7,8 @@ import os.OS;
 public class MemoryManager {
     private Memory memory = OS.memory;
 
-    public void allocateMemory(byte[] program) throws Exception {
-        memory.allocate(program);
+    public void allocateMemory(String[] program) throws Exception {
+        memory.allocate(program,memory);
     }//分配内存的方法，参数未知
 
     public void recoveredMemory(PCB pcb) {
